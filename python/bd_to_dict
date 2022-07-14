@@ -1,0 +1,4 @@
+def bd_to_dict(cur):
+    """ TRANSFORMA UM RESULTADO DO SELECT EM DICIONARIO PARA ENVIAR FORMATO JSON """
+    des = [d[0] for d in cur.description]
+    return [dict(zip(des, line)) for line in cur]

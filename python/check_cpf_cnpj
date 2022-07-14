@@ -1,0 +1,22 @@
+   def check_doc(valor, campo_cduf=None):
+            """ VALIDA DOCUMENTOS BRASILEIROS: RG, CPF, CNPJ."""
+            # campo_cduf é necessario quando for EX (exterior) é uma excessão de verificação de CPF/CNPJ
+            valor = str(valor)
+            print('validador documento: ', len(valor))
+            cpf     = CPF()
+            cnpj    = CNPJ()
+            if not campo_cduf:
+                if len(valor) >= 1 and len(valor) <= 11:
+                    # CHECK CPF
+                    print('cpf')
+                    res = cpf.validate(valor)
+                elif len(valor) > 11 and len(valor) <= 14:
+                    # CHECK CNPJ
+                    print('cnpj')
+                    res = cnpj.validate(valor)
+                if not res:
+                    return mensagem.append({"Campo": chave + ' ' + campo, "Resultado": self.msg_docinvalido(campo)})
+                else:
+                    return True
+            else:
+                return True

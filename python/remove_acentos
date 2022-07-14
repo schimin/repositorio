@@ -1,0 +1,7 @@
+def removeAcentos(var):
+    from unidecode import unidecode
+    try:
+        string = unidecode(str(var))
+        return string
+    except:
+        print('removeAcentos')

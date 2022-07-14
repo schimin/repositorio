@@ -1,0 +1,14 @@
+    def check_duplicado(self, campo, dados, chave):
+        """ VERIFICA SE EXISTE VALOR REPETIDO EM UM DICIONARIO """
+        list = []
+        for z in dados:
+            if type(z[campo]) == str:
+                var = z[campo]
+                list.append(var.upper())
+            else:
+                list.append(z[campo])
+        if len(list) == len(set(list)):
+            return False
+        else:
+            print('check_duplicado', list, set(list))
+            return True

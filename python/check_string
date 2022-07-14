@@ -1,0 +1,7 @@
+def check_String(var):
+    """ FUNCAO PARA VERIFICAR SE UMA STRING CONTEM LETRAS DE A-Z EM ALGUMA PARTE DA STRING, MAIUSCULAS OU MINUSCULA """
+    import re
+    x = re.findall("[a-zA-Z]", var)
+    print('x',x)
+    if (x):
+        return True

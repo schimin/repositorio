@@ -1,0 +1,8 @@
+def verificaNumeros(valor):
+    """ VERIFICA SE VALOR CONTEM APENAS NUMEROS """
+    import re
+    var = str(valor)
+    x = re.match(r"^[0-9]*$", var)
+    if not x:
+        return False
+    return True

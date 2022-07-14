@@ -1,0 +1,7 @@
+def removeZero(var):
+    var = int(var)
+    if var >= 1:
+        return var
+    else:
+        var = str('')
+        return var

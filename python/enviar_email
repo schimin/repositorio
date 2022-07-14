@@ -1,0 +1,57 @@
+def enviaEmail(debug = 'S'):
+    # TODO COLOCAR COM TRY EXCEPT
+    # Criando mensagem
+    dados_json = []
+    g.dados_email.append({'cd_empresa: ': g.global_cdempresa, 'cd_filial: ': g.global_cdfilial, 'API: ': g.apiintegracao, 'API CFG RECEB: ': g.apiintegracao_cfg_receb})
+    for x in g.dados_email:
+        dados_json.append(x)
+
+    if debug == 'S':
+        print("DEBUG ENVIO DE EMAIL: ", dados_json)
+        return True
+    else:
+        import smtplib
+        from email.mime.multipart import MIMEMultipart
+        from email.mime.text import MIMEText
+
+        # EMAIL
+        destinatario = 'email@teste'
+
+        # Configuração
+        ENVIRONMENT = os.getenv('FLASK_ENV')
+        if ENVIRONMENT == 'production':
+            host = 'servidor'
+            port = 587
+            user = 'usuaro@email'
+            password = '444444'
+        else:
+            
+            host = 'smtp.mailtrap.io'
+            port = 2525
+            user = '76896'
+            password = '666666'
+
+        # Criando objeto
+        print('Criando objeto servidor...')
+        server = smtplib.SMTP(host, port)
+
+        # Login com servidor
+        print('Login...')
+        server.ehlo()
+        server.starttls()
+        server.login(user, password)
+
+        message                 = 'Alerta sobre API.\n' + str(dados_json)
+        print('Criando mensagem...')
+        email_msg               = MIMEMultipart()
+        email_msg['From']       = user
+        email_msg['To']         = destinatario
+        email_msg['Subject']    = 'API'
+        print('Adicionando texto...')
+        email_msg.attach(MIMEText(message, 'plain'))
+
+        # Enviando mensagem
+        print('Enviando mensagem...')
+        server.sendmail(email_msg['From'], email_msg['To'], email_msg.as_string())
+        print('Mensagem enviada!')
+        server.quit()

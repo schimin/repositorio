@@ -1,0 +1,16 @@
+def consultaUf(_estado):
+    """ CONSULTA UF VIA SITE IBGE """
+    import requests
+    URL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"
+    try:
+        r = requests.request('GET', URL)
+        resultado = []
+        #print("HELPER CONSULTANF:", r.json())
+        for estados in r.json():
+            #print("HELPER CONSULTANF LOOP: ", estados['nome'])
+            if estados['nome'] == _estado:
+                #print("HELPER CONSULTANF LOOP IF escolhido:", estados['nome'], _estado)
+                resultado.append({ 'id': estados['id'], 'nome': estados['nome'], 'sigla': estados['sigla'] })
+                return resultado
+    except requests.ConnectionError as e:
+        print('HELPER CONSULTA UF ERRO')

@@ -1,0 +1,8 @@
+    def check_formatemail(self, var):
+        import re
+        if var:
+            x = re.match("^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", var)
+        if x:
+            return True
+        else:
+            return False

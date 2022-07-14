@@ -1,0 +1,11 @@
+def addYears(date, years):
+    import datetime
+    result = date + datetime.timedelta(366 * years)
+    if years > 0:
+        while result.year - date.year > years or date.month < result.month or date.day < result.day:
+            result += datetime.timedelta(-1)
+    elif years < 0:
+        while result.year - date.year < years or date.month > result.month or date.day > result.day:
+            result += datetime.timedelta(1)
+    #print(date, result)
+    return result

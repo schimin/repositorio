@@ -1,0 +1,8 @@
+def verificaDecimal(valor):
+    """ VERIFICA SE VALOR ESTA NO FORMATO XXXX.XXXX """
+    import re
+    var = str(valor)
+    x = re.match(r"^[0-9]\d{0,20}(\.\d{1,4})?%?$", var)
+    if not x:
+        return False
+    return True

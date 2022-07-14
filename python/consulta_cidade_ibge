@@ -1,0 +1,17 @@
+def consultaCidade(_codigo, _cidade):
+    """ CONSULTA CIDADE VIA SITE IBGE """
+    import requests
+    try:
+        URL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"
+        r = requests.request('GET', URL + str(_codigo) + '/municipios' )
+        resultado = []
+        #print("HELPER CIDADE:", r.json())
+        for cidades in r.json():
+            #print("HELPER CIDADE LOOP: ", cidades['nome'])
+            if cidades['nome'] == _cidade:
+                #print("HELPER CIDADE LOOP IF escolhido:", cidades['nome'], _cidade)
+                print('helper consultaCidade', cidades['id'], cidades['nome'])
+                resultado.append({ 'id': cidades['id'], 'nome': cidades['nome']})
+                return resultado
+    except requests.ConnectionError as e:
+        print('HELPER CIDADE ERRO')

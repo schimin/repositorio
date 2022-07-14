@@ -1,0 +1,6 @@
+def addDays(_date, _days):
+    from datetime import timedelta
+    print('add days 1', _date)
+    date = _date + timedelta(days=_days)
+    print('add days 2', date)
+    return date
