@@ -1,4 +1,7 @@
-
+/*
+TORNAR A FONTE RESPONSIVE MANUALMENTE CONFORME A ESCOLHA DAS OPÇÕES NATIVAS DO CLIENTE, COMO FONTE E TAMANHO.
+DISPLAY SIZE E FONT SIZE NAS OPÇÕES DO ANDROID
+*/
 {Dimensions, PixelRatio} from 'react-native';
 const screenDimensions = Dimensions.get('screen').scale;
 
