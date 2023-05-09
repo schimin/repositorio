@@ -23,3 +23,24 @@ async function obterTokenRecaptcha() {
             return token;
             
         }
+
+/*
+Antes usava assim, mas não estava carregando de forma assincrona:
+async function carregarScript() {
+            try {
+                await $.getScript("https://www.google.com/recaptcha/enterprise.js?render=" + publicKey);
+                //await grecaptcha.enterprise.ready()
+                console.log('carregou script')
+                return true
+            } catch (error) {
+                console.error("Ocorreu um erro ao carregar o script recaptcha: " + error);
+                return false
+            }
+        }
+        
+        e depois :
+        
+        const response = await grecaptcha.enterprise.execute(publicKey, {action: modelo});
+                return response;
+
+*/
