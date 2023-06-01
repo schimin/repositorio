@@ -187,3 +187,4 @@ const dbName     = 'logisticapedidos';
         });
     }
     
+// Usar em combinação com lodash
