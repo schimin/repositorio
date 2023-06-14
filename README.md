@@ -19,3 +19,10 @@ io.on('connection', (socket) => {
 ```
 io.emit('statusResponse', 'Status recebido com sucesso! ' + new Date());
 ``` 
+
+- disconect > avisa a desconexão
+```
+io.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+```
