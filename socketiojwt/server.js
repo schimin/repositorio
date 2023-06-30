@@ -2,6 +2,7 @@ const express   = require('express');
 const http      = require('http');
 const cors      = require('cors')
 const app       = express();
+const jwt       = require('jsonwebtoken');
 
 const server = http.createServer(app);
 
@@ -21,6 +22,17 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     console.log('user disconnected');
+  });
+
+  socket.on('authenticate', (token) => {
+    try {
+      const decoded = jwt.verify(token, 'chave_secreta'); // Verificar e decodificar o token JWT usando a chave secreta
+      console.log('Usuário autenticado:', decoded);
+      // Execute as ações necessárias após a autenticação do usuário
+    } catch (err) {
+      console.error('Erro ao autenticar usuário:', err);
+      // Lidar com o erro de autenticação
+    }
   });
   
 })
