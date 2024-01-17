@@ -4,7 +4,7 @@ $.ajax({
 	dataType: 'json', // converte o resultado para json
 	cache: false,
         async: false,
-	data: { var1: 'valor1' }
+	data: { var1: 'valor1' },
 	beforeSend:function(){
 		// algo para acionar antes do envio
 	}
