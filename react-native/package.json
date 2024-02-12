@@ -1,0 +1,21 @@
+// EXEMPLO DE INICIO DE UM APP REACT NATIVE COM EXPO E EAS PARA COMPILAR NA NUVEM SEM TER MAC
+
+{
+  "name": "appclientes",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "clean": "expo start --clear",
+    "doctor": "npx expo-doctor",
+    "previewios": "eas build -p ios --profile preview",
+    "previewandroid": "eas build -p android --profile preview",
+    "compilarios": "eas build --platform ios",
+    "compilarandroid": "eas build --platform android",
+    "enviarios": "eas submit -p ios",
+    "enviarandroid": "eas submit -p android"
+  },
+  "dependencies": {}
+}
