@@ -1,0 +1,6 @@
+.specialtext
+    {
+      -webkit-text-fill-color: black;
+      -webkit-text-stroke-color: grey;
+      -webkit-text-stroke-width: 1px;
+    }
